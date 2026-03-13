@@ -1,0 +1,48 @@
+---
+const img = Astro.props.img;
+const label = Astro.props.label;
+const link = Astro.props.link;
+
+const {top = "0"} = Astro.props;
+const {left = "0"} = Astro.props;
+
+const {width = "50px"} = Astro.props;
+const {height = "50px"} = Astro.props;
+
+---
+<div class="button-container" style ={`top: ${top}; left: ${left}; width: ${width}; height: ${height};`}>
+    <img src={img.src} alt="pixel sun image">
+    <label for="sun">{label}</label>
+</div>
+
+<style>
+    .button-container {
+        position: absolute;
+        background: #f0f0f0;
+        border-radius: 50%;
+        
+    }
+    .button-container img, .button-container label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .button-container label {
+        z-index: 3;
+        opacity: 0;
+        white-space: nowrap;
+    }
+    .button-container img {
+        z-index: 2;
+        width: 140%;
+    }
+
+    .button-container:hover img {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    .button-container:hover label {
+        opacity: 1;
+    }
+</style>
