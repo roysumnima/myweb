@@ -1,6 +1,7 @@
 ---
-// const img = Astro.props.img;
-// const label = Astro.props.label;
+const img = Astro.props.img;
+const alt = Astro.props.alt;
+const label = Astro.props.label;
 const link = Astro.props.link;
 
 const {top = "0"} = Astro.props;
@@ -12,8 +13,8 @@ const {height = "50px"} = Astro.props;
 ---
 <div class="button-container" style ={`top: ${top}; left: ${left}; width: ${width}; height: ${height};`}>
     <a href={link}>
-        <slot name="img" />
-        <slot name="label" />
+        <img src={img.src} alt={alt} />
+        <label>{label}</label>
     </a>
 </div>
 
