@@ -9,18 +9,23 @@ const {height = "auto"} = Astro.props;
 
 // const pages: Page[] = biophilia.pages;
 ---
-<carousel-element data-items={JSON.stringify(pages)}>
-    <p>Pages:<p/>
-        <!-- <ul>
-        {pages.map(page => (
-        <li>{page.alt}</li>
-        ))}
-        </ul> -->
-  <button class="carousel-btn" data-prev>{"<"}</button>
-  <div carousel-content style={`width: ${width}px; height: ${height}px;`}>
-    <img src="err" alt="err"/>
+<carousel-element data-items={JSON.stringify(pages)} style={`width: ${width}; height: ${height};`}>
+    
+    <div class="carousel-btn-selector prev"></div>
+    <div class="carousel-btn-bg prev"></div>
+    <div class="carousel-btn-container prev">
+      <button data-prev>{"<"}</button>
     </div>
-  <button class="carousel-btn" data-next>{">"}</button>
+
+    <div class="carousel-content">
+      <img src="err" alt="err"/>
+    </div>
+
+    <div class="carousel-btn-selector next"></div>
+    <div class="carousel-btn-bg next"></div>
+    <div class="carousel-btn-container next">
+      <button data-next>{">"}</button>
+    </div>
 </carousel-element>
 
 <script>
@@ -28,27 +33,23 @@ const {height = "auto"} = Astro.props;
     class Carousel extends HTMLElement {
         current = 0;
         items: Page[] = [];
-        // constructor() {
-        //     super();
-        //     this.current = 0;
-        //     this.items = JSON.parse(this.dataset.items || '[]');
-
-        //     this.updateCarousel();
-        // }
 
         connectedCallback() {
         this.items = JSON.parse(this.dataset.items || '[]');
         this.updateCarousel();
 
-        const prevBtn = this.querySelector('[data-prev]');
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => this.carouselPrev());
-        }
+        // Allow clicking anywhere on left/right half
+        const prevArea = this.querySelector('.carousel-btn-selector.prev');
+        if (prevArea) prevArea.addEventListener('click', () => this.carouselPrev());
 
-        const nextBtn = this.querySelector('[data-next]');
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => this.carouselNext());
-        }
+        const nextArea = this.querySelector('.carousel-btn-selector.next');
+        if (nextArea) nextArea.addEventListener('click', () => this.carouselNext());
+
+        // Listen for 'updateCarousel' custom event
+        this.addEventListener('updateCarousel', () => {
+          this.items = JSON.parse(this.dataset.items || '[]');
+          this.updateCarousel();
+        });
         }
 
         carouselNext() {
@@ -62,12 +63,14 @@ const {height = "auto"} = Astro.props;
         }
 
         updateCarousel() {
+            console.log('Updating carousel with items:', this.items, 'current index:', this.current);
             const img = this.querySelector('.carousel-content img') as HTMLImageElement;
             if (img && this.items[this.current]) {
-                img.src = this.items[this.current].imgsrc;
-                img.alt = this.items[this.current].alt;
+              console.log('Updating carousel with item:', this.items[this.current]);
+              img.src = this.items[this.current].imgsrc;
+              img.alt = this.items[this.current].alt;
             } else {
-                console.error('Carousel image element not found or items array is empty.', this.items, this.current);
+              console.error('Carousel image element not found or items array is empty.', this.items, this.current);
             }
         }
         
@@ -78,33 +81,81 @@ const {height = "auto"} = Astro.props;
 
 <style>
 carousel-element {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-rows: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: darkslategray;
+  /* background: red; */
+  height: inherit;
+  width: inherit;
+  position: relative;
+}
+
+.carousel-btn-container {
+  position: relative;
+  height: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: red;
+  justify-content: center;
+  z-index: 2;
 }
-.carousel-btn {
-  font-size: 2rem;
-  text-decoration: none;
-  background-color: white;
-  color: black;
-  border: none;
+
+.carousel-btn-container button {
+  background: rgba(0,0,0,0.1);
+}
+
+.carousel-btn-selector {
+  position: absolute;
+  height: 100%;
+  width: 50vw;
+  z-index: 10;
   cursor: pointer;
 }
+.carousel-btn-selector.prev {
+  left: 0;
+}
+.carousel-btn-selector.next {
+  right: 0;
+}
+
+.carousel-btn-bg {
+  position: absolute;
+  height: 100%;
+  width: 50vw;
+  z-index: 4;
+}
+
+.carousel-btn-bg.prev {
+  left: 0;
+}
+.carousel-btn-bg.next {
+  right: 0;
+}
+
+.carousel-btn-selector:hover + .carousel-btn-bg {
+  background: rgba(0,0,0,0.1);
+}
+
 
 
 .carousel-content {
-    display: flex;
-  justify-content: center;
+  grid-column: 2;
+  display: flex;
   align-items: center;
-  overflow: hidden;
-  background: white;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+carousel-element .carousel-content img {
+  z-index: 5;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
-.carousel-content img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    display: block;
-}
 </style>
