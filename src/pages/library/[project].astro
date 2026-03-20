@@ -1,4 +1,5 @@
 ---
+import { BASE_URL } from '../../assets/data/webdetails';
 import Layout from '../../layouts/Layout.astro';
 import Carousel from '../../components/Carousel.astro';
 
@@ -19,20 +20,20 @@ const project = Allprojects[projectTitle];
     
 <Navbar>
     <div>
-        <a href="/library">{"<-"}</a>
+        <a href={`${BASE_URL}/library`}>{"<-"}</a>
     </div>
 </Navbar>
 
 <div class="library" data-projects={JSON.stringify(Allprojects)}>
     <div class="library-shelf">
         {Object.values(Allprojects).map((project) => (
-            <a href={`/library/${project.id.toLowerCase()}`}><img src={project.pages[0].imgsrc} alt={project.pages[0].alt}/></a>
+            <a href={`${BASE_URL}/library/${project.id.toLowerCase()}`}><img src={project.pages[0].imgsrc} alt={project.pages[0].alt}/></a>
         ))}
 
     </div>
     
     <div class="library-carousel">
-    <Carousel pages={project.pages} width="auto" height="80%"/>
+    <Carousel pages={project.pages} width="auto" height="80%" />
     </div>
 
 </div>

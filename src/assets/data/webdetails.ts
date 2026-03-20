@@ -1,1 +1,1 @@
-export const BASE_URL = "myweb";
+export const BASE_URL = "/myweb";
