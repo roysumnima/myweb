@@ -1,5 +1,5 @@
 :root {
-	font-family: system-ui, sans-serif;
+	font-family: 'Courier New', Courier, monospace;
 	background-color: black;
 	color: white;
 }
@@ -12,9 +12,13 @@ body {
 	}
 
 	a {
-		text-decoration: none;
+		text-decoration: underline;
+		color: white;
 	}
-
+	a:hover {
+		color: lightgray;
+		background: rgba(255, 255, 255, 0.4);
+	}
 	.hover-rotate:hover {
 		transform: rotate(45deg);
 	}
