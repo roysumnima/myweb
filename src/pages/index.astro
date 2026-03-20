@@ -1,23 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import sunImg from '../assets/sun.png';
-import starImg from '../assets/star.png';
-import Button from '../components/Button.astro';
-import { startsWith } from 'astro:schema';
+
+import sunImg from '../assets/images/sun.png';
+import starImg from '../assets/images/star.png';
+
+// import Button from '../components/Button.astro';
+import Buttontwo from '../components/Buttontwo.astro';
+
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 <Layout>
-	<Button
-	img={sunImg} label="Click me!" link="#"
+	
+	<Buttontwo
+	img={sunImg} alt="sun pixel image" label="about me!" 
+	link="/about"
 	top="50%" left="50%"
-	width="80px" height="80px"/>
+	width="80px" height="80px">
+	</Buttontwo>
 
-	<Button
-	img={starImg} label="Hello!" link="#"
+	<Buttontwo
+	img={starImg} alt="star pixel image" label="library" 
+	link="/library"
 	top="30%" left="30%"
-	width="60px" height="60px"/>
+	width="60px" height="60px">
+	</Buttontwo>
 
 </Layout>
 
