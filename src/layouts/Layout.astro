@@ -14,6 +14,23 @@ const { title = "My Website"} = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<div class="main-container">
+
 		<slot />
+
+		</div>
 	</body>
 </html>
+
+<style>
+	.main-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: justify;
+
+		width: 80vw;
+		height: 80vh;
+
+		margin: 1vh auto;
+	}
+</style>
