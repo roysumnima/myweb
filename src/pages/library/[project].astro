@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Carousel from '../../components/Carousel.astro';
+
+import { Allprojects } from '../../assets/data/projectdetails'; 
+import Navbar from '../../layouts/Navbar.astro';
+
+export function getStaticPaths() {
+    return [
+        ...Object.values(Allprojects).map(project => ({ params: { project: project.id.toLowerCase() } }))
+    ];
+}
+
+const projectTitle = Astro.params.project;
+const project = Allprojects[projectTitle];
+---
+
+<Layout>
+    
+<Navbar>
+    <div>
+        <a href="/library">{"<-"}</a>
+    </div>
+</Navbar>
+
+<div class="library" data-projects={JSON.stringify(Allprojects)}>
+    <div class="library-shelf">
+        {Object.values(Allprojects).map((project) => (
+            <a href={`/library/${project.id.toLowerCase()}`}><img src={project.pages[0].imgsrc} alt={project.pages[0].alt}/></a>
+        ))}
+
+    </div>
+    
+    <div class="library-carousel">
+    <Carousel pages={project.pages} width="auto" height="80%"/>
+    </div>
+
+</div>
+
+
+</Layout>
+
+<style>
+.library {
+    display: grid;
+    grid-template-columns: inherit;
+    grid-template-rows: 20vh 80vh;
+    gap: 20px;
+    width: 100%;
+}
+
+.library img {
+    width: auto;
+    height: 80%;
+}
+
+.library-shelf {
+    /* background-color: wheat; */
+    grid-row: 1;
+    display: flex;
+    gap: 20px;
+}
+.library-carousel {
+    grid-row: 2;
+    display: block;
+    /* background-color: wheat; */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+</style>
