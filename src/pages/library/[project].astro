@@ -20,14 +20,14 @@ const project = Allprojects[projectTitle];
     
 <Navbar>
     <div>
-        <a href={`${BASE_URL}/library`}>{"<-"}</a>
+        <a href={`${BASE_URL}library`}>{"<-"}</a>
     </div>
 </Navbar>
 
 <div class="library" data-projects={JSON.stringify(Allprojects)}>
     <div class="library-shelf">
         {Object.values(Allprojects).map((project) => (
-            <a href={`${BASE_URL}/library/${project.id.toLowerCase()}`}><img src={project.pages[0].imgsrc} alt={project.pages[0].alt}/></a>
+            <a href={`${BASE_URL}library/${project.id.toLowerCase()}`}><img src={project.pages[0].imgsrc} alt={project.pages[0].alt}/></a>
         ))}
 
     </div>

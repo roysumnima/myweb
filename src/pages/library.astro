@@ -15,7 +15,7 @@ import { Allprojects } from '../../public/assets/data/projectdetails.js';
 <div class="gallery" data-projects={JSON.stringify(Allprojects)}>
         {Object.values(Allprojects).map((project) => (
             <div class="gallery-block">
-                <a href={`${BASE_URL}/library/${project.id.toLowerCase()}`}>
+                <a href={`${BASE_URL}library/${project.id.toLowerCase()}`}>
                     <img src={project.pages[0].imgsrc} alt={project.pages[0].alt}/>
                 </a>
             </div>
