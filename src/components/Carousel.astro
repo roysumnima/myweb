@@ -18,7 +18,7 @@ const {height = "auto"} = Astro.props;
     </div>
 
     <div class="carousel-content">
-      <img src="err" alt="err" />
+      <img src="err" alt="err" style="transform: rotate(0deg);" />
     </div>
 
     <div class="carousel-btn-selector next"></div>
@@ -69,6 +69,8 @@ const {height = "auto"} = Astro.props;
               console.log('Updating carousel with item:', this.items[this.current]);
               img.src = this.items[this.current].imgsrc;
               img.alt = this.items[this.current].alt;
+              const rotation = this.items[this.current].rotation || 0;
+              img.style.transform = `rotate(${rotation}deg)`;
             } else {
               console.error('Carousel image element not found or items array is empty.', this.items, this.current);
             }

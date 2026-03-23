@@ -16,7 +16,11 @@ import { Allprojects } from '../assets/data/projectdetails.js';
         {Object.values(Allprojects).map((project) => (
             <div class="gallery-block">
                 <a href={`${BASE_URL}library/${project.id.toLowerCase()}`}>
-                    <img src={project.pages[0].imgsrc} alt={project.pages[0].alt}/>
+                    <img
+                    src={project.pages[0].imgsrc}
+                    alt={project.pages[0].alt}
+                    style={`transform: rotate(${project.pages[0].rotation || 0}deg);`} 
+                    />
                 </a>
             </div>
         ))}

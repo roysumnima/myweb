@@ -5,12 +5,12 @@ export const biophilia: Project = {
     pages : [
         {
             "alt" : "biophilia page 1",
-            "imgsrc" : "https://v1.padlet.pics/3/image.webp?t=c_limit%2Cdpr_2%2Ch_360%2Cw_508&url=https%3A%2F%2Fu1.padletusercontent.com%2Fuploads%2Fpadlet-uploads-usc1%2F216829712%2Fd516a512ca02f655963cc87e9b4cd7b6%2FIMG_20251230_0048__1_.jpg%3Fexpiry_token%3D5WaHZRdGG3LkUVQGy3SZ-zdRtq89aJeottSBaF_Hii8dmxJqYDvE2-MDbblcM-ZrVekXW99RReKkJFIoMoKio1paaQJqF8blpaUElCNA2NcrvzNK2BR6kYGddKK7Q_vV8vbN3L4YhMxtuGtLpELZjTwIErhHoEBJD2RjaZ_zbgAw6iDMfME59AHEjC1X1WlbI0uGwtBkHYOVkYNYMb80cA7lToNztb0-aINwbgK2AEE%3D",
+            "imgsrc" : "https://u.cubeupload.com/justrghost/biophiliafull.jpg",
+            "rotation": 180
         },
         {
             "alt" : "biophilia page 2",
-            "imgsrc" : "https://v1.padlet.pics/3/image.webp?t=c_limit%2Cdpr_2%2Ch_360%2Cw_508&url=https%3A%2F%2Fu1.padletusercontent.com%2Fuploads%2Fpadlet-uploads-usc1%2F216829712%2F20420ed67ba49c0343d6f9d2104b7051%2FIMG_20251230_0048.jpg%3Fexpiry_token%3D5WaHZRdGG3LkUVQGy3SZ-zdRtq89aJeottSBaF_Hii8dmxJqYDvE2-MDbblcM-ZrVekXW99RReKkJFIoMoKio1paaQJqF8blpaUElCNA2NfpS-Q7RDuI9LWBeJjfUQK7JAGqvV74BrMQ4sU0TRa4odnNX-V6TU2cnrELf5yJVHDGt8_SXtW6Wmx0IqlJW-2dnkNQz86iFPS9m357io2sa55iJE8W9jf9vhZ4orUcfG0%3D"
-        }
+            "imgsrc" : "https://u.cubeupload.com/justrghost/biophiliafull.jpg"}
     ]
 
 }
