@@ -1,38 +1,40 @@
 ---
 import { BASE_URL } from '../assets/data/webdetails';
+import Base from '../layouts/Base.astro';
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../layouts/Navbar.astro';
 
 // Terminal styling: https://css-tricks.com/old-timey-terminal-styling/
 ---
 
-<Layout>
+<Base>
+  <div class="terminal">
     <Navbar>
         <div>
             <a href={`${BASE_URL}`}>{"<-"}</a>
         </div>
     </Navbar>
-    <div class="terminal">
+    
     <pre><output>
     <h1>hello!</h1>
     <p>i am a uni student studying computer science. i code, paint, collage, write and do many things of that sort, so this is my personal website for storing my projects in a fun way.</p>
     <p><a href={`${BASE_URL}sitemap`}>sitemap is here</a> or just go back to the <a href={`${BASE_URL}`}>home page</a>.</p>
     </output></pre>
     </div>
-</Layout>
+</Base>
 
 <style>
 .terminal {
-    border: #0080FF;
-    border-width: 0.5rem;
-  clip-path: ellipse(50% 150%);
+    /* border: #0080FF;
+    border-width: 0.5rem; */
+  /* clip-path: ellipse(50% 150%); */
   background-color: black;
   background-image: radial-gradient(
     rgba(0, 150, 0, 0.75), black 120%
   );
-  height: 100vh;
-  margin: 0;
-  padding: 2rem;
+  height: 80vh;
+  /* margin: 0; */
+  padding: 10vh 10vw;
   color: white;
   font: 1.3rem Inconsolata, monospace;
   text-shadow: 0 0 5px #C8C8C8;

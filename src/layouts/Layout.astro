@@ -1,29 +1,14 @@
 ---
-import '../assets/global.css';
-import { BASE_URL } from '../assets/data/webdetails';
-const { title = "My Website"} = Astro.props;
+import Base from "./Base.astro";
 ---
-
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-		<!-- <link rel="icon" href="/favicon.ico" /> -->
-		<link rel="icon" type="image/x-icon" href=`${BASE_URL}sunicon.png` />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<div class="main-container">
+<Base>
+	<div class="main-container">
 
 		<slot />
 
-		</div>
-	</body>
-</html>
-
+	</div>
+</Base>
+	
 <style>
 	.main-container {
 		display: flex;
