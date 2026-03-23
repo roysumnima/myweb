@@ -10,9 +10,8 @@ import { Allprojects } from '../assets/data/projectdetails.js';
             <a href={`${BASE_URL}`}>{"<-"}</a>
         </div>
     </Navbar>
-</div>
 
-<div class="gallery" data-projects={JSON.stringify(Allprojects)}>
+    <div class="gallery" data-projects={JSON.stringify(Allprojects)}>
         {Object.values(Allprojects).map((project) => (
             <div class="gallery-block">
                 <a href={`${BASE_URL}library/${project.id.toLowerCase()}`}>
@@ -24,9 +23,7 @@ import { Allprojects } from '../assets/data/projectdetails.js';
                 </a>
             </div>
         ))}
-
-</div>
-
+    </div>
 
 </Layout>
 
@@ -55,6 +52,7 @@ import { Allprojects } from '../assets/data/projectdetails.js';
 .gallery img {;
     max-width: 90%;
     max-height: 90%;
+    filter: blur(0.5px)
 }
 
 
