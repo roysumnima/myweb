@@ -45,12 +45,22 @@ export const untold: Project = {
     ]
 }
 
-export const midjourney: Project = {
-    id: "midjourney",
+export const rapture: Project = {
+    id: "rapture",
     pages : [
         {
-            "alt" : "midjourney page 1",
-            "imgsrc" : "https://v1.padlet.pics/3/image.webp?t=c_limit%2Cdpr_2%2Ch_720%2Cw_508&url=https%3A%2F%2Fu1.padletusercontent.com%2Fuploads%2Fpadlet-uploads-usc1%2F216829712%2Fef859db6b44b3cbfd6d41d3d4dc84bc9%2FWho_S_afraid_of_midjourney.png%3Fexpiry_token%3D5WaHZRdGG3LkUVQGy3SZ-zdRtq89aJeottSBaF_Hii8dmxJqYDvE2-MDbblcM-ZrVekXW99RReKkJFIoMoKio1paaQJqF8blpaUElCNA2NdDGDHfmhlKA73Pj_n-U2TE3ZAt_APOpqb8Xch2L4GVBeJViD71PmMf7XLuGwxF1AIT7VsI4WRDi1hCGDCaGws0vKY-LukHJRKoQlefyasE7Hqr-utEtOQ8Wgeb1cxxPJZ7gMhyTwqCgfVcyxkLbAfo"
+            "alt" : "rapture page 1",
+            "imgsrc" : "https://u.cubeupload.com/justrghost/therapturerepeated.jpg"
+        }
+    ]
+}
+
+export const sainteater: Project = {
+    id: "sainteater",
+    pages : [
+        {
+            "alt" : "sainteater page 1",
+            "imgsrc" : "https://u.cubeupload.com/justrghost/rgmmigrationpostcard.jpg"
         }
     ]
 }
@@ -58,5 +68,6 @@ export const midjourney: Project = {
 export const Allprojects: ProjectList = {
     "biophilia" : biophilia,
     "untold" : untold,
-    "midjourney" : midjourney
+    "rapture" : rapture,
+    "sainteater" : sainteater
 }
