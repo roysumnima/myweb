@@ -17,7 +17,7 @@ body {
 	}
 	a:hover {
 		color: lightgray;
-		background: rgba(255, 255, 255, 0.);
+		background: rgba(255, 255, 255, 0.5);
 	}
 	.hover-rotate:hover {
 		transform: rotate(45deg);
