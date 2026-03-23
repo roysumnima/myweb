@@ -1,6 +1,4 @@
 ---
-import '../assets/global.css';
-// import sunImg from '../assets/images/sun.png';
 import { BASE_URL } from '../assets/data/webdetails';
 const { title = "My Website"} = Astro.props;
 ---
@@ -13,7 +11,7 @@ const { title = "My Website"} = Astro.props;
 		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 		<!-- <link rel="icon" href="/favicon.ico" /> -->
 		<link rel="icon" type="image/x-icon" href=`${BASE_URL}sunicon.png` />
-		<!-- <link rel="stylesheet" href={'assets/global.css'} /> -->
+		<link rel="stylesheet" href={`${BASE_URL}assets/global.css`} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
