@@ -1,14 +1,15 @@
 ---
-import { BASE_URL } from '../../../public/assets/data/webdetails';
+import { BASE_URL } from '../../assets/data/webdetails';
 import Layout from '../../layouts/Layout.astro';
 import Carousel from '../../components/Carousel.astro';
 
-import { Allprojects } from '../../../public/assets/data/projectdetails'; 
+import { Allprojects } from '../../assets/data/projectdetails'; 
 import Navbar from '../../layouts/Navbar.astro';
+import type { Project } from '../../assets/types';
 
 export function getStaticPaths() {
     return [
-        ...Object.values(Allprojects).map(project => ({ params: { project: project.id.toLowerCase() } }))
+        ...Object.values(Allprojects).map((project: Project) => ({ params: { project: project.id.toLowerCase() } }))
     ];
 }
 
